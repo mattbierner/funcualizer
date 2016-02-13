@@ -6,7 +6,7 @@ var apply = Function.prototype.apply;
     Create a function that invokes a method on a `this` argument.
     The `this` argument is taken as the first argument of the function.
 */
-var functionalizer = function functionalizer(method) {
+var funcualizer = function funcualizer(method) {
     return function (self) {
         for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
             args[_key - 1] = arguments[_key];
@@ -15,7 +15,7 @@ var functionalizer = function functionalizer(method) {
         return method.apply(self, args);
     };
 };
-functionalizer.pre = functionalizer;
+funcualizer.pre = funcualizer;
 
 /**
     Fixed arity version of `pre`.
@@ -24,7 +24,7 @@ functionalizer.pre = functionalizer;
 
     Usually faster than `pre`.
 */
-functionalizer.pre$ = function (method, arity) {
+funcualizer.pre$ = function (method, arity) {
     switch (arity === undefined ? method.length : arity) {
         case 0:
             return function (self) {
@@ -63,7 +63,7 @@ functionalizer.pre$ = function (method, arity) {
                 return method.call(self, a, b, c, d, e, f, g, h);
             };
         default:
-            return functionalizer.pre(method);
+            return funcualizer.pre(method);
     }
 };
 
@@ -73,7 +73,7 @@ functionalizer.pre$ = function (method, arity) {
 
     The `this` parameter cannot be falsy.
 */
-functionalizer.dynamic_pre = function (methodName) {
+funcualizer.dynamic_pre = function (methodName) {
     return function (self) {
         for (var _len2 = arguments.length, args = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
             args[_key2 - 1] = arguments[_key2];
@@ -86,7 +86,7 @@ functionalizer.dynamic_pre = function (methodName) {
 /**
     Fixed arity version of `dynamic_pre`.
 */
-functionalizer.dynamic_pre$ = function (methodName, arity) {
+funcualizer.dynamic_pre$ = function (methodName, arity) {
     switch (arity) {
         case 0:
             return function (self) {
@@ -125,7 +125,7 @@ functionalizer.dynamic_pre$ = function (methodName, arity) {
                 return self[methodName](a, b, c, d, e, f, g, h);
             };
         default:
-            return functionalizer.dynamic_pre(methodName);
+            return funcualizer.dynamic_pre(methodName);
     }
 };
 
@@ -133,7 +133,7 @@ functionalizer.dynamic_pre$ = function (methodName, arity) {
     Create a function that invokes a method on a `this` argument.
     The `this` argument is taken as the last argument of the function.
 */
-functionalizer.post = function (method) {
+funcualizer.post = function (method) {
     return function () {
         for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
             args[_key3] = arguments[_key3];
@@ -150,7 +150,7 @@ functionalizer.post = function (method) {
 
     Usually faster than `post`.
 */
-functionalizer.post$ = function (method, arity) {
+funcualizer.post$ = function (method, arity) {
     switch (arity === undefined ? method.length : arity) {
         case 0:
             return function (self) {
@@ -189,7 +189,7 @@ functionalizer.post$ = function (method, arity) {
                 return method.call(self, a, b, c, d, e, f, g, h);
             };
         default:
-            return functionalizer.post(method);
+            return funcualizer.post(method);
     }
 };
 
@@ -199,7 +199,7 @@ functionalizer.post$ = function (method, arity) {
 
     @see `dynamic_pre`
 */
-functionalizer.dynamic_post = function (methodName) {
+funcualizer.dynamic_post = function (methodName) {
     return function () {
         for (var _len4 = arguments.length, args = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
             args[_key4] = arguments[_key4];
@@ -213,7 +213,7 @@ functionalizer.dynamic_post = function (methodName) {
 /**
     Fixed arity version of `dynamic_post`.
 */
-functionalizer.dynamic_post$ = function (methodName, arity) {
+funcualizer.dynamic_post$ = function (methodName, arity) {
     switch (arity) {
         case 0:
             return function (self) {
@@ -252,9 +252,9 @@ functionalizer.dynamic_post$ = function (methodName, arity) {
                 return self[methodName](a, b, c, d, e, f, g, h);
             };
         default:
-            return functionalizer.dynamic_post(methodName);
+            return funcualizer.dynamic_post(methodName);
     }
 };
 
-module.exports = functionalizer;
+module.exports = funcualizer;
 //# sourceMappingURL=index.js.map

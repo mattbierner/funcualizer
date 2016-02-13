@@ -1,5 +1,5 @@
 {
-    "name": "functionizer",
+    "name": "funcualizer",
     "version": "0.0.1",
     "description": "Converting methods to performant functions.",
     "keywords": [
@@ -12,7 +12,7 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/mattbierner/functionizer.git"
+        "url": "https://github.com/mattbierner/funcualizer.git"
     },
 
     "main": "index.js",

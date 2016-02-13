@@ -1,5 +1,5 @@
 "use strict";
-const functionizer = require('../index');
+const funcualizer = require('../index');
 const assert = require('chai').assert;
 
 describe('post$', () => {
@@ -8,7 +8,7 @@ describe('post$', () => {
         const method = function() { return [this.x].concat([].slice.call(arguments)); };
         for (let i = 0 ; i < 8; ++i) {
             const a = args.slice(0, i);
-            const f = functionizer.post$(method, i);
+            const f = funcualizer.post$(method, i);
 
             assert.strictEqual(i + 1, f.length);
             assert.deepEqual([3].concat(args.slice(0, i)), f.apply(null, a.concat({ x: 3 })));
