@@ -73,59 +73,59 @@ functionalizer.pre$ = function (method, arity) {
 
     The `this` parameter cannot be falsy.
 */
-functionalizer.dynamic_pre = function (method_name) {
+functionalizer.dynamic_pre = function (methodName) {
     return function (self) {
         for (var _len2 = arguments.length, args = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
             args[_key2 - 1] = arguments[_key2];
         }
 
-        return self[method_name].apply(self, args);
+        return self[methodName].apply(self, args);
     };
 };
 
 /**
     Fixed arity version of `dynamic_pre`.
 */
-functionalizer.dynamic_pre$ = function (method_name, arity) {
+functionalizer.dynamic_pre$ = function (methodName, arity) {
     switch (arity) {
         case 0:
             return function (self) {
-                return self[method_name]();
+                return self[methodName]();
             };
         case 1:
             return function (self, a) {
-                return self[method_name](a);
+                return self[methodName](a);
             };
         case 2:
             return function (self, a, b) {
-                return self[method_name](a, b);
+                return self[methodName](a, b);
             };
         case 3:
             return function (self, a, b, c) {
-                return self[method_name](a, b, c);
+                return self[methodName](a, b, c);
             };
         case 4:
             return function (self, a, b, c, d) {
-                return self[method_name](a, b, c, d);
+                return self[methodName](a, b, c, d);
             };
         case 5:
             return function (self, a, b, c, d, e) {
-                return self[method_name](a, b, c, d, e);
+                return self[methodName](a, b, c, d, e);
             };
         case 6:
             return function (self, a, b, c, d, e, f) {
-                return self[method_name](a, b, c, d, e, f);
+                return self[methodName](a, b, c, d, e, f);
             };
         case 7:
             return function (self, a, b, c, d, e, f, g) {
-                return self[method_name](a, b, c, d, e, f, g);
+                return self[methodName](a, b, c, d, e, f, g);
             };
         case 8:
             return function (self, a, b, c, d, e, f, g, h) {
-                return self[method_name](a, b, c, d, e, f, g, h);
+                return self[methodName](a, b, c, d, e, f, g, h);
             };
         default:
-            return functionalizer.dynamic_pre(method);
+            return functionalizer.dynamic_pre(methodName);
     }
 };
 
@@ -199,60 +199,60 @@ functionalizer.post$ = function (method, arity) {
 
     @see `dynamic_pre`
 */
-functionalizer.dynamic_post = function (method_name) {
+functionalizer.dynamic_post = function (methodName) {
     return function () {
         for (var _len4 = arguments.length, args = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
             args[_key4] = arguments[_key4];
         }
 
         var self = args.pop();
-        return self[method_name].apply(self, args);
+        return self[methodName].apply(self, args);
     };
 };
 
 /**
     Fixed arity version of `dynamic_post`.
 */
-functionalizer.dynamic_post$ = function (method_name, arity) {
+functionalizer.dynamic_post$ = function (methodName, arity) {
     switch (arity) {
         case 0:
             return function (self) {
-                return self[method_name]();
+                return self[methodName]();
             };
         case 1:
             return function (a, self) {
-                return self[method_name](a);
+                return self[methodName](a);
             };
         case 2:
             return function (a, b, self) {
-                return self[method_name](a, b);
+                return self[methodName](a, b);
             };
         case 3:
             return function (a, b, c, self) {
-                return self[method_name](a, b, c);
+                return self[methodName](a, b, c);
             };
         case 4:
             return function (a, b, c, d, self) {
-                return self[method_name](a, b, c, d);
+                return self[methodName](a, b, c, d);
             };
         case 5:
             return function (a, b, c, d, e, self) {
-                return self[method_name](a, b, c, d, e);
+                return self[methodName](a, b, c, d, e);
             };
         case 6:
             return function (a, b, c, d, e, f, self) {
-                return self[method_name](a, b, c, d, e, f);
+                return self[methodName](a, b, c, d, e, f);
             };
         case 7:
             return function (a, b, c, d, e, f, g, self) {
-                return self[method_name](a, b, c, d, e, f, g);
+                return self[methodName](a, b, c, d, e, f, g);
             };
         case 8:
             return function (a, b, c, d, e, f, g, h, self) {
-                return self[method_name](a, b, c, d, e, f, g, h);
+                return self[methodName](a, b, c, d, e, f, g, h);
             };
         default:
-            return functionalizer.dynamic_post(method);
+            return functionalizer.dynamic_post(methodName);
     }
 };
 

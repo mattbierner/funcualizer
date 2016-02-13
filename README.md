@@ -113,4 +113,4 @@ Same general behavior as `post` but looks up a method by name on the `this` argu
 Fixed argument version of `dynamic_post`.
 
 
-[benchmark]: https://jsperf.com/free-function-forward-cost/3
+[benchmark]: https://jsperf.com/free-function-forward-cost/6

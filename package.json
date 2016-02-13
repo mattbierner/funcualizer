@@ -1,6 +1,6 @@
 {
     "name": "functionizer",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "description": "Converting methods to performant functions.",
     "keywords": [
         "function",
